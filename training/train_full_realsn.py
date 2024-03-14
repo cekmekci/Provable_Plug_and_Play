@@ -50,6 +50,8 @@ def main():
         sigma = noiseL_B
     else:
         sigma = opt.noiseL
+
+    os.makedirs(opt.outf, exist_ok = True) 
     save_path = creat_SavePath(opt.outf, sigma, opt.num_of_layers, opt.mode,
                                opt.lip, opt.no_bn, opt.adaptive)
 
@@ -177,4 +179,3 @@ if __name__ == "__main__":
         if opt.mode == 'B':
             prepare_data(data_path='data', patch_size=50, stride=10, aug_times=2)
     main()
-
